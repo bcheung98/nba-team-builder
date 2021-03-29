@@ -853,20 +853,6 @@
             "draft": "2020 R2 53",
             "country": "USA",
             "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630216.png"
-        },
-        {
-            "id": 0,
-            "name": "Name",
-            "height": "Height",
-            "weight": "Weight",
-            "position": "Position",
-            "team": "TEAM",
-            "number": "Number",
-            "birthday": "YYYY-MM-DD",
-            "from": "Place",
-            "draft": "Year R P",
-            "country": "Country",
-            "img": "imgurl"
         }
     ]
 }
