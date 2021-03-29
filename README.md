@@ -1,3 +1,15 @@
+# Core Deliverables
+
+As a user, I should be able to:
+
+- View NBA players from a database
+- Search, sort, and filter players
+- Add players to my team
+- View more information about players on a separate page by clicking on them
+
+The API we are using will be our own JSON server of NBA players. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
