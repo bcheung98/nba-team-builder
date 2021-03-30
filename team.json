@@ -1,0 +1,18 @@
+{
+    "team": [
+        {
+            "id": 1629649,
+            "name": "Ignas Brazdeikis",
+            "height": "6-6",
+            "weight": "221",
+            "position": "SF",
+            "team": "PHI",
+            "number": "17",
+            "birthday": "1999-01-08",
+            "from": "Michigan",
+            "draft": "2019 R2 47",
+            "country": "Canada",
+            "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629649.png"
+        }
+    ]
+}
