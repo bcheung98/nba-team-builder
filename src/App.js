@@ -8,7 +8,7 @@ import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import MoreInfo from "./components/MoreInfo";
 
-const API1 = "http://localhost:3000/players";
+const API1 = "https://bcheung98.github.io/nba-player-db/players.json";
 const API2 = "http://localhost:3000/team";
 
 class App extends React.Component {
