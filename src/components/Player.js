@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 let teamImages = {
   "ATL": "1610612737",
@@ -54,6 +55,7 @@ const Player = (props) => {
           <h5>Height: {formatHeight(props.player.height)}</h5>
           <h5>Weight: {props.player.weight} lbs</h5>
           <h5>Position: {props.player.position}</h5>
+          <Link to={`/players/${props.player.id}`} >More Info</Link>
         </div>
       </div>
     </div>

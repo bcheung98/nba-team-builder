@@ -1,21 +1,7 @@
-import React from 'react';
-import Player from './Player'
-
-const API = "http://localhost:3000/players";
-
+import React from "react";
+import Player from "./Player";
 
 class PlayersList extends React.Component {
-
-  state = {
-    players: [],
-  };
-
-  componentDidMount() {
-    fetch(API)
-      .then((r) => r.json())
-      .then((players) => this.setState({ players }));
-  }
-
   render() {
     return (
       <div>
