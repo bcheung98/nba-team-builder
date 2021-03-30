@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-let teamImages = {
+const teamImages = {
   ATL: "1610612737",
   BOS: "1610612738",
   CLE: "1610612739",
@@ -50,9 +50,7 @@ const Player = (props) => {
       <div className="player-info">
         <img
           className="player-team-img-card"
-          src={`https://cdn.nba.com/logos/nba/${
-            teamImages[props.player.team]
-          }/primary/D/logo.svg`}
+          src={`https://cdn.nba.com/logos/nba/${teamImages[props.player.team]}/primary/D/logo.svg`}
           alt={props.player.team}
         />
         <h3 className="player-name-card">{formatName(props.player.name)}</h3>
@@ -62,9 +60,9 @@ const Player = (props) => {
           alt={props.player.name}
         />
         <div className="player-details">
-          <h5>Height: {formatHeight(props.player.height)}</h5>
-          <h5>Weight: {props.player.weight} lbs</h5>
-          <h5>Position: {props.player.position}</h5>
+          <p><b>Height:</b> {formatHeight(props.player.height)}</p>
+          <p><b>Weight:</b> {props.player.weight} lb</p>
+          <p><b>Position</b>: {props.player.position}</p>
           <Link to={`/players/${props.player.id}`}>More Info</Link>
         </div>
       </div>
