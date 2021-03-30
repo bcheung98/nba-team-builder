@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.player-display {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.player-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.player-card {
+  width: 375px;
+  height: 150px;
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.player-card:hover {
+  box-shadow: 0 0 2px 1px lightblue;
+  border: 2px solid dodgerblue;
+}
+
+.player-info {
+  display: grid;
+  grid-template-columns: 110px 270px;
+}
+
+.player-team-img-card {
+  width: 64px;
+}
+
+.player-img-card {
+  margin-left: 5px;
+  margin-top: -7.5px;
+  width: 128px;
+}
+
+.player-details > h5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
