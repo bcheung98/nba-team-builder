@@ -35,7 +35,7 @@ class PlayersList extends React.Component {
         <Filters setTeam={this.setTeamFilters} setPosition={this.setPositionFilters} />
         <div className="player-display">
           <div className="player-container">
-            {this.filterPlayers().map(player => <Player key={player.id} player={player} />)}
+            {this.filterPlayers().map(player => <Player key={player.id} player={player}/>)}
           </div>
         </div>
       </div>

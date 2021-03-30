@@ -70,7 +70,7 @@ const MoreInfo = (props) => {
           <h5>From: {props.player.from}</h5>
           <h5>Country: {props.player.country}</h5>
         </div>
-        <button>Add to Team</button>
+        <button onClick={()=>props.addPlayer()}>Add to Team</button>
       </div>
     </div>
   );
