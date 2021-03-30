@@ -8,7 +8,7 @@ class PlayersList extends React.Component {
         <h1>Players</h1>
         <div className="player-display">
           <div className="player-container">
-            {this.state.players.map(player=> <Player key={player.id} player={player} />)}
+            {this.props.players.map(player=> <Player key={player.id} player={player} />)}
           </div>
         </div>
       </div>
