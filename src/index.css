@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("http://www.newdesignfile.com/postpic/2012/01/basketball-court-floor-texture_68453.jpg");
+  background-size: contain;
+  background-color: white;
 }
 
 code {
@@ -33,10 +36,11 @@ code {
   margin: 10px;
   border: 2px solid black;
   border-radius: 5px;
+  background-color: white;
 }
 
 .player-card:hover {
-  box-shadow: 0 0 2px 1px lightblue;
+  box-shadow: 0 0 15px 1px lightblue;
   border: 2px solid dodgerblue;
 }
 
@@ -63,6 +67,9 @@ code {
 .player-more-info {
   margin: auto;
   margin-top: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
   width: 950px;
   display: grid;
   grid-template-columns: auto auto;
