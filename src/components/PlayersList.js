@@ -10,6 +10,10 @@ class PlayersList extends React.Component {
     position: "all"
   }
 
+  sortPlayers = () => {
+    return [...this.props.players].sort((a, b) => a.name.split(" ").reverse().join(" ") < b.name.split(" ").reverse().join(" ") ? -1 : 1)
+  }
+
   searchPlayer = (e) => {
     this.setState({players: e.target.value})
   }
@@ -23,7 +27,7 @@ class PlayersList extends React.Component {
   }
 
   filterPlayers = () => {
-    let players = [...this.props.players]
+    let players = this.sortPlayers();
     if (this.state.players !== "") {
       players = players.filter(p => p.name.toLowerCase().includes(this.state.players.toLowerCase()));
     }
