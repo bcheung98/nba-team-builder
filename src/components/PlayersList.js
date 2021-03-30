@@ -6,9 +6,11 @@ class PlayersList extends React.Component {
     return (
       <div>
         <h1>Players</h1>
-        {this.props.players.map((player) => (
-          <Player key={player.id} player={player} />
-        ))}
+        <div className="player-display">
+          <div className="player-container">
+            {this.state.players.map(player=> <Player key={player.id} player={player} />)}
+          </div>
+        </div>
       </div>
     );
   }
