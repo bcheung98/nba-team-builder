@@ -1,42 +1,44 @@
 import React from "react";
 
-
-let teamImages = {
-  ATL: "1610612737",
-  BOS: "1610612738",
-  CLE: "1610612739",
-  NOP: "1610612740",
-  CHI: "1610612741",
-  DAL: "1610612742",
-  DEN: "1610612743",
-  GSW: "1610612744",
-  HOU: "1610612745",
-  LAC: "1610612746",
-  LAL: "1610612747",
-  MIA: "1610612748",
-  MIL: "1610612749",
-  MIN: "1610612750",
-  BKN: "1610612751",
-  NYK: "1610612752",
-  ORL: "1610612753",
-  IND: "1610612754",
-  PHI: "1610612755",
-  PHX: "1610612756",
-  POR: "1610612757",
-  SAC: "1610612758",
-  SAS: "1610612759",
-  OKC: "1610612760",
-  TOR: "1610612761",
-  UTA: "1610612762",
-  MEM: "1610612763",
-  WAS: "1610612764",
-  DET: "1610612765",
-  CHA: "1610612766",
+const teamMap = {
+  ATL: ["1610612737", "Atlanta Hawks"],
+  BOS: ["1610612738", "Boston Celtics"],
+  CLE: ["1610612739", "Cleveland Cavaliers"],
+  NOP: ["1610612740", "New Orleans Pelicans"],
+  CHI: ["1610612741", "Chicago Bulls"],
+  DAL: ["1610612742", "Dallas Mavericks"],
+  DEN: ["1610612743", "Denver Nuggets"],
+  GSW: ["1610612744", "Golden State Warriors"],
+  HOU: ["1610612745", "Houston Rockets"],
+  LAC: ["1610612746", "Los Angeles Clippers"],
+  LAL: ["1610612747", "Los Angeles Lakers"],
+  MIA: ["1610612748", "Miami Heat"],
+  MIL: ["1610612749", "Milwaukee Bucks"],
+  MIN: ["1610612750", "Minnesota Timberwolves"],
+  BKN: ["1610612751", "Brooklyn Nets"],
+  NYK: ["1610612752", "New York Knicks"],
+  ORL: ["1610612753", "Orlando Magic"],
+  IND: ["1610612754", "Indiana Pacers"],
+  PHI: ["1610612755", "Philadelphia 76ers"],
+  PHX: ["1610612756", "Phoenix Suns"],
+  POR: ["1610612757", "Portland Trail Blazers"],
+  SAC: ["1610612758", "Sacramento Kings"],
+  SAS: ["1610612759", "San Antonio Spurs"],
+  OKC: ["1610612760", "Oklahoma City Thunder"],
+  TOR: ["1610612761", "Toronto Raptors"],
+  UTA: ["1610612762", "Utah Jazz"],
+  MEM: ["1610612763", "Memphis Grizzlies"],
+  WAS: ["1610612764", "Washington Wizards"],
+  DET: ["1610612765", "Detroit Pistons"],
+  CHA: ["1610612766", "Charlotte Hornets"],
 };
 
-const formatName = (name) => {
-  name = name.split(" ");
-  return `${name[0]}  ${name[1].toUpperCase()}`;
+const positionMap = {
+  "PG": "Point Guard",
+  "SG": "Shooting Guard",
+  "SF": "Small Forward",
+  "PF": "Power Forward",
+  "C": "Center"
 };
 
 const formatHeight = (height) => {
@@ -44,35 +46,74 @@ const formatHeight = (height) => {
   return `${height[0]} ft ${height[1]} in`;
 };
 
+const formatPosition = (position) => {
+  position = position.split("/");
+  if (position.length === 1) {
+    return `${positionMap[position[0]]}`;
+  }
+  else {
+    return `${positionMap[position[0]]} / ${positionMap[position[1]]}`;
+  }
+}
+
+const formatDraft = (draft) => {
+  draft = draft.split(" ");
+  if (draft.length === 3) {
+    return `${draft[0]} / Round: ${draft[1][1]} / Pick: ${draft[2]}`;
+  }
+  else {
+    return `${draft[0]} / ${draft[1]}`;
+  }
+}
+
 const MoreInfo = (props) => {
   return (
-    <div className="player-card">
-      <div className="player-info">
+    <React.Fragment>
+      <div className="player-more-info">
         <img
-          className="player-team-img-card"
-          src={`https://cdn.nba.com/logos/nba/${
-            teamImages[props.player.team]
-          }/primary/D/logo.svg`}
+          className="player-team-img-info"
+          src={`https://cdn.nba.com/logos/nba/${teamMap[props.player.team][0]}/primary/D/logo.svg`}
           alt={props.player.team}
         />
-        <h3 className="player-name-card">{formatName(props.player.name)}</h3>
+        <div>
+          <h1 className="player-name-info">{props.player.name}</h1>
+          <h2>#{props.player.number} | {teamMap[props.player.team][1]}</h2>
+          <h2>{formatPosition(props.player.position)}</h2>
+        </div>
         <img
-          className="player-img-card"
+          className="player-img-info"
           src={props.player.img}
           alt={props.player.name}
         />
-        <div className="player-details">
-          <h5>Height: {formatHeight(props.player.height)}</h5>
-          <h5>Weight: {props.player.weight} lbs</h5>
-          <h5>Position: {props.player.position}</h5>
-          <h5>Number: {props.player.number}</h5>
-          <h5>Birthday: {props.player.birthday}</h5>
-          <h5>From: {props.player.from}</h5>
-          <h5>Country: {props.player.country}</h5>
+        <div className="player-details-info">
+          <div>
+            <b>Height</b>
+            <p>{formatHeight(props.player.height)}</p>
+          </div>
+          <div>
+            <b>Weight</b>
+            <p>{props.player.weight} lb</p>
+          </div>
+          <div>
+            <b>Draft</b>
+            <p>{formatDraft(props.player.draft)}</p>
+          </div>
+          <div>
+            <b>Birthday</b>
+            <p>{props.player.birthday}</p>
+          </div>
+          <div>
+            <b>Last Attended</b>
+            <p>{props.player.from}</p>
+          </div>
+          <div>
+            <b>Country</b>
+            <p>{props.player.country}</p>
+          </div>
         </div>
-        <button>Add to Team</button>
       </div>
-    </div>
+      <button className="add-button">Add to Team</button>
+    </React.Fragment>
   );
 };
 
