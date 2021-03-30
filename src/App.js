@@ -3,10 +3,10 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import PlayersList from "./components/PlayersList";
 import Team from "./components/Team";
-import Player from "./components/Player";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
+import MoreInfo from "./components/MoreInfo"
 
 const API = "http://localhost:3000/players";
 
@@ -28,8 +28,9 @@ class App extends React.Component {
         <header>
           <NavBar />
         </header>
-
+        <main>
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/team" component={Team} />
           <Route
             exact path="/players"
@@ -41,14 +42,14 @@ class App extends React.Component {
             exact path="/players/:id"
             render={(routerProps) => {
               let player = this.state.players.find(
-                (player) => routerProps.match.params.id === player.id
+                (player) => Number(routerProps.match.params.id) === player.id
               );
-              return <Player player={player} />;
+              return <MoreInfo player={player} />;
             }}
           />
-          <Route path="/" component={Home} />
           <Route component={NotFound} />
         </Switch>
+        </main>
       </div>
     );
   }

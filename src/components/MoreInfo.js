@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 let teamImages = {
   ATL: "1610612737",
@@ -44,7 +44,7 @@ const formatHeight = (height) => {
   return `${height[0]} ft ${height[1]} in`;
 };
 
-const Player = (props) => {
+const MoreInfo = (props) => {
   return (
     <div className="player-card">
       <div className="player-info">
@@ -65,11 +65,15 @@ const Player = (props) => {
           <h5>Height: {formatHeight(props.player.height)}</h5>
           <h5>Weight: {props.player.weight} lbs</h5>
           <h5>Position: {props.player.position}</h5>
-          <Link to={`/players/${props.player.id}`}>More Info</Link>
+          <h5>Number: {props.player.number}</h5>
+          <h5>Birthday: {props.player.birthday}</h5>
+          <h5>From: {props.player.from}</h5>
+          <h5>Country: {props.player.country}</h5>
         </div>
+        <button>Add to Team</button>
       </div>
     </div>
   );
 };
 
-export default Player;
+export default MoreInfo;
