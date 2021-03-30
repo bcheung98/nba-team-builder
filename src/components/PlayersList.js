@@ -5,8 +5,13 @@ import Player from "./Player";
 class PlayersList extends React.Component {
 
   state = {
+    players: "",
     team: "all",
     position: "all"
+  }
+
+  searchPlayer = (e) => {
+    this.setState({players: e.target.value})
   }
 
   setTeamFilters = (e) => {
@@ -19,6 +24,9 @@ class PlayersList extends React.Component {
 
   filterPlayers = () => {
     let players = [...this.props.players]
+    if (this.state.players !== "") {
+      players = players.filter(p => p.name.toLowerCase().includes(this.state.players.toLowerCase()));
+    }
     if (this.state.team !== "all") {
       players = players.filter(p => this.state.team === p.team);
     }
@@ -32,6 +40,9 @@ class PlayersList extends React.Component {
     return (
       <div>
         <h1>Players</h1>
+        <div>
+          <input onChange={this.searchPlayer} type="text" placeholder="Search for a player" />
+        </div>
         <Filters setTeam={this.setTeamFilters} setPosition={this.setPositionFilters} />
         <div className="player-display">
           <div className="player-container">
