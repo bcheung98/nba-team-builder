@@ -51,11 +51,36 @@ code {
 
 .player-img-card {
   margin-left: 5px;
-  margin-top: 2.5px;
+  margin-top: 11.5px;
   width: 128px;
 }
 
-.player-details > h5 {
+.player-details > p {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.player-more-info {
+  margin: auto;
+  margin-top: 50px;
+  width: 950px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.player-team-img-info {
+  width: 256px;
+}
+
+.player-img-info {
+  width: 320px;
+}
+
+.player-details-info {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.add-button {
+  margin: 20px;
 }
