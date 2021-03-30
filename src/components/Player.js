@@ -34,7 +34,7 @@ let teamImages = {
   "CHA": "1610612766"
 }
 
-const formatName = (name, idx) => {
+const formatName = (name) => {
   name = name.split(" ");
   return `${name[0]}  ${name[1].toUpperCase()}`;
 }
