@@ -34,7 +34,7 @@ class App extends React.Component {
           <Route
             exact path="/players"
             render={() => {
-              return <PlayersList players={this.state.players} />;
+              return <PlayersList players={this.state.players} setTeam={this.setTeamFilters} />;
             }}
           />
           <Route

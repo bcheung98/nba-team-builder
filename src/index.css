@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
+.filter {
+  margin: 10px;
+}
 
 .player-display {
   display: flex;
