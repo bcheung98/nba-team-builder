@@ -8,15 +8,44 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 
+const API = "http://localhost:3000/players";
+
 class App extends React.Component {
+  state = {
+    players: [],
+    team: [],
+  };
+
+  componentDidMount() {
+    fetch(API)
+      .then((r) => r.json())
+      .then((players) => this.setState({ players }));
+  }
+
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <header>
+          <NavBar />
+        </header>
+
         <Switch>
           <Route path="/team" component={Team} />
-          <Route path="/playerslist" component={PlayersList} />
-          <Route path="/player" component={Player} />
+          <Route
+            exact path="/players"
+            render={() => {
+              return <PlayersList players={this.state.players} />;
+            }}
+          />
+          <Route
+            exact path="/players/:id"
+            render={(routerProps) => {
+              let player = this.state.players.find(
+                (player) => routerProps.match.params.id === player.id
+              );
+              return <Player player={player} />;
+            }}
+          />
           <Route path="/" component={Home} />
           <Route component={NotFound} />
         </Switch>

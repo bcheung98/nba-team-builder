@@ -19,11 +19,8 @@ const NavBar = () => {
       <NavLink to="/team" style={link}>
         Drafted Team
       </NavLink>
-      <NavLink to="/playerslist" style={link}>
+      <NavLink to="/players" style={link}>
         Draft List
-      </NavLink>
-      <NavLink to="/player" style={link}>
-        Player Info
       </NavLink>
     </div>
   );
