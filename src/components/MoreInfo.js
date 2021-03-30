@@ -112,7 +112,7 @@ const MoreInfo = (props) => {
           </div>
         </div>
       </div>
-      <button className="add-button">Add to Team</button>
+      <button className="add-button" onClick={()=>props.addPlayer()>Add to Team</button>
     </React.Fragment>
   );
 };
