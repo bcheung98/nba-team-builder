@@ -7,8 +7,9 @@ As a user, I should be able to:
 - Add players to my team
 - View more information about players on a separate page by clicking on them
 
-The API we are using will be our own JSON server of NBA players. The user's team will be stored on a separate JSON server.
+The API we are using will be our own JSON server of NBA players, which is available here: https://bcheung98.github.io/nba-player-db/players.json 
 
+The user's team will be stored on a separate JSON server.
 
 # Getting Started with Create React App
 
