@@ -44,9 +44,9 @@ class App extends React.Component {
     }
   };
 
-  removePlayer = () => {
-    console.log("hi");
-  };
+  // removePlayer = () => {
+  //   console.log("hi");
+  // };
   
 
   render() {
@@ -65,7 +65,7 @@ class App extends React.Component {
                 return (
                   <Team
                     team={this.state.team}
-                    removePlayer={this.removePlayer}
+                    // removePlayer={this.removePlayer}
                   />
                 );
               }}
