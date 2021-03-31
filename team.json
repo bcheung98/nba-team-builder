@@ -15,18 +15,18 @@
       "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201144.png"
     },
     {
-      "id": 1628960,
-      "name": "Grayson Allen",
-      "height": "6-4",
-      "weight": "198",
-      "position": "SG",
-      "team": "MEM",
-      "number": "3",
-      "birthday": "1995-10-08",
-      "from": "Duke",
-      "draft": "2018 R1 21",
+      "id": 201939,
+      "name": "Stephen Curry",
+      "height": "6-3",
+      "weight": "185",
+      "position": "PG",
+      "team": "GSW",
+      "number": "30",
+      "birthday": "1988-03-14",
+      "from": "Davidson",
+      "draft": "2009 R1 7",
       "country": "USA",
-      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628960.png"
+      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
     }
   ]
 }
