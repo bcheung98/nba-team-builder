@@ -77,7 +77,6 @@ class App extends React.Component {
                 return (
                   <PlayersList
                     players={this.state.players}
-                    setTeam={this.setTeamFilters}
                   />
                 );
               }}

@@ -1,41 +1,92 @@
 import React from "react";
 import Filters from "./Filters";
+import SortBar from "./SortBar";
 import Player from "./Player";
 
 class PlayersList extends React.Component {
 
   state = {
-    players: "",
-    team: "all",
-    position: "all"
+    sort: "name-AZ",
+    filters: {
+      players: "",
+      team: "all",
+      position: "all"
+    }
+  }
+
+  heightToInches = (height) => {
+    height = height.split("-");
+    return (parseInt(height[0]) * 12) + parseInt(height[1]);
+  }
+
+  setSortSettings = (e) => {
+    this.setState({ sort: e.target.value }, () => this.sortPlayers());
   }
 
   sortPlayers = () => {
-    return [...this.props.players].sort((a, b) => a.name.split(" ").reverse().join(" ") < b.name.split(" ").reverse().join(" ") ? -1 : 1)
+    let players = [...this.props.players]
+    switch (this.state.sort) {
+      case "name-AZ":
+        players.sort((a, b) => a.name.split(" ").reverse().join(" ") < b.name.split(" ").reverse().join(" ") ? -1 : 1);
+        break;
+      case "name-ZA":
+        players.sort((a, b) => a.name.split(" ").reverse().join(" ") < b.name.split(" ").reverse().join(" ") ? 1 : -1);
+        break;
+      case "height-asc":
+        players.sort((a, b) => this.heightToInches(a.height) < this.heightToInches(b.height) ? -1 : 1);
+        break;
+      case "height-desc":
+        players.sort((a, b) => this.heightToInches(a.height) < this.heightToInches(b.height) ? 1 : -1);
+        break;
+      case "weight-asc":
+        players.sort((a, b) => a.weight < b.weight ? -1 : 1);
+        break;
+      case "weight-desc":
+        players.sort((a, b) => a.weight < b.weight ? 1 : -1);
+        break;
+      default:
+        break;
+    }
+    return players
   }
 
   searchPlayer = (e) => {
-    this.setState({players: e.target.value})
+    this.setState({
+      filters: {
+        ...this.state.filters,
+        players: e.target.value
+      }
+    });
   }
 
   setTeamFilters = (e) => {
-    this.setState({ team: e.target.value })
+    this.setState({
+      filters: {
+        ...this.state.filters,
+        team: e.target.value
+      }
+    });
   }
 
   setPositionFilters = (e) => {
-    this.setState({ position: e.target.value })
+    this.setState({
+      filters: {
+        ...this.state.filters,
+        position: e.target.value
+      }
+    });
   }
 
   filterPlayers = () => {
     let players = this.sortPlayers();
-    if (this.state.players !== "") {
-      players = players.filter(p => p.name.toLowerCase().includes(this.state.players.toLowerCase()));
+    if (this.state.filters.players !== "") {
+      players = players.filter(p => p.name.toLowerCase().includes(this.state.filters.players.toLowerCase()));
     }
-    if (this.state.team !== "all") {
-      players = players.filter(p => this.state.team === p.team);
+    if (this.state.filters.team !== "all") {
+      players = players.filter(p => this.state.filters.team === p.team);
     }
-    if (this.state.position !== "all") {
-      players = players.filter(p => p.position.split("/").includes(this.state.position));
+    if (this.state.filters.position !== "all") {
+      players = players.filter(p => p.position.split("/").includes(this.state.filters.position));
     }
     return players;
   }
@@ -48,9 +99,10 @@ class PlayersList extends React.Component {
           <input onChange={this.searchPlayer} type="text" placeholder="Search for a player" />
         </div>
         <Filters setTeam={this.setTeamFilters} setPosition={this.setPositionFilters} />
+        <SortBar onChange={this.setSortSettings} />
         <div className="player-display">
           <div className="player-container">
-            {this.filterPlayers().map(player => <Player key={player.id} player={player}/>)}
+            {this.filterPlayers().map(player => <Player key={player.id} player={player} />)}
           </div>
         </div>
       </div>
