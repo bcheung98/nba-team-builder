@@ -1,28 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const link = {
-  width: 'max',
-  padding: "10px",
-  margin: "0 6px 6px 10px",
-  background: "blue",
-  textDecoration: "none",
-  color: "white",
-};
-
 const NavBar = (props) => {
   return (
-    <div className='navBar'>
-      <NavLink to="/" style={link}>
+    <div className='nav-bar'>
+      <NavLink to="/" className="nav-link">
         Home
       </NavLink>
-      <NavLink to="/players" style={link}>
-        Draft List
+      <NavLink to="/players" className="nav-link">
+        Player List
       </NavLink>
-      <NavLink to="/team" style={link}>
-        Drafted
+      <NavLink to="/team" className="nav-link">
+        My Team ({props.team.length})
       </NavLink>
-      <div> Player Drafted: {props.team.length}</div>
     </div>
   );
 };
