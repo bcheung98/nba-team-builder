@@ -65,7 +65,7 @@ const DraftedPlayer = (props) => {
           <p><b>Position</b>: {props.player.position}</p>
           <Link to={`/players/${props.player.id}`}>More Info</Link>
           <br/>
-          <button onClick={()=> props.removePlayer(props.player)}>Undraft Player</button>
+          <button onClick={()=> props.removePlayer(props.player)} className='button'>Undraft Player</button>
         </div>
       </div>
     </div>

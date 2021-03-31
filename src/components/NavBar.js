@@ -3,16 +3,17 @@ import { NavLink } from "react-router-dom";
 
 const link = {
   width: 'max',
-  padding: "10px",
+  padding: "5px",
   margin: "0 6px 6px 10px",
   background: "blue",
   textDecoration: "none",
   color: "white",
+  opacity: .8
 };
 
 const NavBar = (props) => {
   return (
-    <div className='navBar'>
+    <div className='App-header'>
       <NavLink to="/" style={link}>
         Home
       </NavLink>
