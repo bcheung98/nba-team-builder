@@ -104,6 +104,7 @@ code {
   grid-template-columns: auto auto auto;
 }
 
-.add-button {
+.button {
   margin: 20px;
+  cursor: pointer
 }
