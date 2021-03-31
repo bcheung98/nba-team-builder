@@ -44,9 +44,13 @@ class App extends React.Component {
     }
   };
 
-  // removePlayer = () => {
-  //   console.log("hi");
-  // };
+  removePlayer = (p) => {
+    fetch(`http://localhost:3000/team/${p.id}`, {
+      method: "DELETE",
+    })
+    .then(()=> this.setState({team: [...this.state.team].filter(x=> x.id !== p.id)
+    }))
+  };
   
 
   render() {
@@ -65,7 +69,7 @@ class App extends React.Component {
                 return (
                   <Team
                     team={this.state.team}
-                    // removePlayer={this.removePlayer}
+                    removePlayer={this.removePlayer}
                   />
                 );
               }}
