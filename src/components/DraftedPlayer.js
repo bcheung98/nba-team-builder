@@ -14,11 +14,11 @@ const formatHeight = (height) => {
 
 const DraftedPlayer = (props) => {
   return (
-    <div className="player-card">
+    <div className="player-card" style={{backgroundColor: teamMap[props.player.team].color}}>
       <div className="player-info">
         <img
           className="player-team-img-card"
-          src={`https://cdn.nba.com/logos/nba/${teamMap[props.player.team][0]}/primary/D/logo.svg`}
+          src={teamMap[props.player.team].logo}
           alt={props.player.team}
         />
         <h3 className="player-name-card">{formatName(props.player.name)}</h3>

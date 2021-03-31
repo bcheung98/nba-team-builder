@@ -37,15 +37,15 @@ const formatDraft = (draft) => {
 const MoreInfo = (props) => {
   return (
     <React.Fragment>
-      <div className="player-more-info">
+      <div className="player-more-info" style={{backgroundColor: teamMap[props.player.team].color}}>
         <img
           className="player-team-img-info"
-          src={`https://cdn.nba.com/logos/nba/${teamMap[props.player.team][0]}/primary/D/logo.svg`}
+          src={teamMap[props.player.team].logo}
           alt={props.player.team}
         />
         <div>
           <h1 className="player-name-info">{props.player.name}</h1>
-          <h2>#{props.player.number} | {teamMap[props.player.team][1]}</h2>
+          <h2>#{props.player.number} | {teamMap[props.player.team].name}</h2>
           <h2>{formatPosition(props.player.position)}</h2>
         </div>
         <img

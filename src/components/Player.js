@@ -14,11 +14,11 @@ const formatHeight = (height) => {
 
 const Player = (props) => {
   return (
-    <div className="player-card">
+    <div className="player-card" style={{backgroundColor: teamMap[props.player.team].color}}>
       <div className="player-info">
         <img
           className="player-team-img-card"
-          src={`https://cdn.nba.com/logos/nba/${teamMap[props.player.team][0]}/primary/D/logo.svg`}
+          src={teamMap[props.player.team].logo}
           alt={props.player.team}
         />
         <h3 className="player-name-card">{formatName(props.player.name)}</h3>
@@ -31,7 +31,7 @@ const Player = (props) => {
           <p><b>Height:</b> {formatHeight(props.player.height)}</p>
           <p><b>Weight:</b> {props.player.weight} lb</p>
           <p><b>Position</b>: {props.player.position}</p>
-          <Link to={`/players/${props.player.id}`}>More Info</Link>
+          <Link to={`/players/${props.player.id}`} style={{color: "white"}}>More Info</Link>
         </div>
       </div>
     </div>
