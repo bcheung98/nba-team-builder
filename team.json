@@ -1,20 +1,6 @@
 {
   "team": [
     {
-      "id": 1629649,
-      "name": "Ignas Brazdeikis",
-      "height": "6-6",
-      "weight": "221",
-      "position": "SF",
-      "team": "PHI",
-      "number": "17",
-      "birthday": "1999-01-08",
-      "from": "Michigan",
-      "draft": "2019 R2 47",
-      "country": "Canada",
-      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629649.png"
-    },
-    {
       "id": 201144,
       "name": "Mike Conley",
       "height": "6-1",
@@ -29,46 +15,18 @@
       "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201144.png"
     },
     {
-      "id": 203954,
-      "name": "Joel Embiid",
-      "height": "7-0",
-      "weight": "280",
-      "position": "C/PF",
-      "team": "PHI",
-      "number": "21",
-      "birthday": "1994-03-16",
-      "from": "Kansas",
-      "draft": "2014 R1 3",
-      "country": "Cameroon",
-      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/203954.png"
-    },
-    {
-      "id": 201939,
-      "name": "Stephen Curry",
-      "height": "6-3",
-      "weight": "185",
-      "position": "PG",
-      "team": "GSW",
-      "number": "30",
-      "birthday": "1988-03-14",
-      "from": "Davidson",
-      "draft": "2009 R1 7",
+      "id": 1628960,
+      "name": "Grayson Allen",
+      "height": "6-4",
+      "weight": "198",
+      "position": "SG",
+      "team": "MEM",
+      "number": "3",
+      "birthday": "1995-10-08",
+      "from": "Duke",
+      "draft": "2018 R1 21",
       "country": "USA",
-      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
-    },
-    {
-      "id": 202722,
-      "name": "Davis Bertans",
-      "height": "6-10",
-      "weight": "225",
-      "position": "PF",
-      "team": "WAS",
-      "number": "42",
-      "birthday": "1992-11-12",
-      "from": "Baskonia",
-      "draft": "2011 R2 42",
-      "country": "Latvia",
-      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/202722.png"
+      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628960.png"
     }
   ]
 }
