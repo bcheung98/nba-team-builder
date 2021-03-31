@@ -2,6 +2,7 @@ import React from "react";
 import Filters from "./Filters";
 import SortBar from "./SortBar";
 import Player from "./Player";
+import DraftedPlayer from "./DraftedPlayer";
 
 class PlayersList extends React.Component {
 
@@ -10,7 +11,8 @@ class PlayersList extends React.Component {
     filters: {
       players: "",
       team: "all",
-      position: "all"
+      position: "all",
+      draft: "all",
     }
   }
 
@@ -77,6 +79,15 @@ class PlayersList extends React.Component {
     });
   }
 
+  setDraftFilters = (e) => {
+    this.setState({
+      filters: {
+        ...this.state.filters,
+        draft: e.target.value
+      }
+    });
+  }
+
   filterPlayers = () => {
     let players = this.sortPlayers();
     if (this.state.filters.players !== "") {
@@ -88,21 +99,26 @@ class PlayersList extends React.Component {
     if (this.state.filters.position !== "all") {
       players = players.filter(p => p.position.split("/").includes(this.state.filters.position));
     }
+    if (this.state.filters.draft !== "all") {
+      players = players.filter(p => this.state.filters.draft === p.draft.split(" ")[0]);
+    }
     return players;
   }
 
   render() {
     return (
       <div>
-        <h1>Players</h1>
+        {this.props.display === "players" ? <h1>Players</h1> : <h1>My Team</h1>}
         <div>
           <input onChange={this.searchPlayer} type="text" placeholder="Search for a player" />
         </div>
-        <Filters setTeam={this.setTeamFilters} setPosition={this.setPositionFilters} />
+        <Filters setTeam={this.setTeamFilters} setPosition={this.setPositionFilters} setDraftYear={this.setDraftFilters} />
         <SortBar onChange={this.setSortSettings} />
         <div className="player-display">
           <div className="player-container">
-            {this.filterPlayers().map(player => <Player key={player.id} player={player} />)}
+            {this.props.display === "players" ?
+              this.filterPlayers().map(player => <Player key={player.id} player={player} />) :
+              this.filterPlayers().map(player => <DraftedPlayer key={player.id} player={player} removePlayer={this.props.removePlayer} />)}
           </div>
         </div>
       </div>

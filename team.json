@@ -1,18 +1,32 @@
 {
   "team": [
     {
-      "id": 201144,
-      "name": "Mike Conley",
-      "height": "6-1",
-      "weight": "175",
+      "id": 201939,
+      "name": "Stephen Curry",
+      "height": "6-3",
+      "weight": "185",
       "position": "PG",
-      "team": "UTA",
-      "number": "10",
-      "birthday": "1987-10-11",
-      "from": "Ohio State",
-      "draft": "2007 R1 4",
+      "team": "GSW",
+      "number": "30",
+      "birthday": "1988-03-14",
+      "from": "Davidson",
+      "draft": "2009 R1 7",
       "country": "USA",
-      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201144.png"
+      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
+    },
+    {
+      "id": 203081,
+      "name": "Damian Lillard",
+      "height": "6-2",
+      "weight": "195",
+      "position": "PG",
+      "team": "POR",
+      "number": "0",
+      "birthday": "1990-07-15",
+      "from": "Weber State",
+      "draft": "2012 R1 6",
+      "country": "USA",
+      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/203081.png"
     }
   ]
 }

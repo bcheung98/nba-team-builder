@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import PlayersList from "./components/PlayersList";
-import Team from "./components/Team";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
@@ -67,8 +66,9 @@ class App extends React.Component {
               path="/team"
               render={() => {
                 return (
-                  <Team
-                    team={this.state.team}
+                  <PlayersList
+                    players={this.state.team}
+                    display={"team"}
                     removePlayer={this.removePlayer}
                   />
                 );
@@ -81,6 +81,8 @@ class App extends React.Component {
                 return (
                   <PlayersList
                     players={this.state.players}
+                    display={"players"}
+                    
                   />
                 );
               }}
