@@ -10,7 +10,7 @@ const SortBar = (props) => {
                 <option value="height-asc">Height (Ascending)</option>
                 <option value="height-desc">Height (Descending)</option>
                 <option value="weight-asc">Weight (Ascending)</option>
-                <option value="weight-desc">Weight (Descnding)</option>
+                <option value="weight-desc">Weight (Descending)</option>
             </select>
         </React.Fragment>
     )
