@@ -2,6 +2,7 @@ import React from "react";
 import Filters from "./Filters";
 import SortBar from "./SortBar";
 import Player from "./Player";
+import DraftedPlayer from "./DraftedPlayer";
 
 class PlayersList extends React.Component {
 
@@ -107,7 +108,7 @@ class PlayersList extends React.Component {
   render() {
     return (
       <div>
-        <h1>Players</h1>
+        {this.props.display === "players" ? <h1>Players</h1> : <h1>My Team</h1>}
         <div>
           <input onChange={this.searchPlayer} type="text" placeholder="Search for a player" />
         </div>
@@ -115,7 +116,9 @@ class PlayersList extends React.Component {
         <SortBar onChange={this.setSortSettings} />
         <div className="player-display">
           <div className="player-container">
-            {this.filterPlayers().map(player => <Player key={player.id} player={player} />)}
+            {this.props.display === "players" ?
+              this.filterPlayers().map(player => <Player key={player.id} player={player} />) :
+              this.filterPlayers().map(player => <DraftedPlayer key={player.id} player={player} removePlayer={this.props.removePlayer} />)}
           </div>
         </div>
       </div>
