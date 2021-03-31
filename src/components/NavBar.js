@@ -10,7 +10,7 @@ const link = {
   color: "white",
 };
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div className='navBar'>
       <NavLink to="/" style={link}>
@@ -20,8 +20,9 @@ const NavBar = () => {
         Draft List
       </NavLink>
       <NavLink to="/team" style={link}>
-        Drafted Team
+        Drafted
       </NavLink>
+      <div> Player Drafted: {props.team.length}</div>
     </div>
   );
 };

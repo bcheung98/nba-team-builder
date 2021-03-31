@@ -6,7 +6,11 @@ const Team = (props) => {
     <div>
       <h1>Team</h1>
       {props.team.map((player) => (
-        <Player key={player.id} player={player} />
+        <Player
+          key={player.id}
+          player={player}
+          removePlayer={props.removePlayer}
+        />
       ))}
     </div>
   );

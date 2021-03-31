@@ -27,22 +27,33 @@ class App extends React.Component {
   }
 
   addPlayer = (player) => {
-    fetch(API2, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(player),
-    })
-      .then((r) => r.json())
-      .then((player) => this.setState({team: [...this.state.team, player]}))
+    if (!this.state.team.includes(player)) {
+      fetch(API2, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(player),
+      })
+        .then((r) => r.json())
+        .then((player) =>
+          this.setState({ team: [...this.state.team, player] })
+        );
+    } else {
+      return;
+    }
   };
+
+  removePlayer = () => {
+    console.log("hi");
+  };
+  
 
   render() {
     return (
       <div className="App">
         <header>
-          <NavBar />
+          <NavBar team={this.state.team} />
         </header>
         <main>
           <Switch>
@@ -51,7 +62,12 @@ class App extends React.Component {
               exact
               path="/team"
               render={() => {
-                return <Team team={this.state.team} />;
+                return (
+                  <Team
+                    team={this.state.team}
+                    removePlayer={this.removePlayer}
+                  />
+                );
               }}
             />
             <Route

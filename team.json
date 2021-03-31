@@ -55,6 +55,20 @@
       "draft": "2009 R1 7",
       "country": "USA",
       "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
+    },
+    {
+      "id": 202722,
+      "name": "Davis Bertans",
+      "height": "6-10",
+      "weight": "225",
+      "position": "PF",
+      "team": "WAS",
+      "number": "42",
+      "birthday": "1992-11-12",
+      "from": "Baskonia",
+      "draft": "2011 R2 42",
+      "country": "Latvia",
+      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/202722.png"
     }
   ]
 }
