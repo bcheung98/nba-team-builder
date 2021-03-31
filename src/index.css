@@ -52,7 +52,7 @@ code {
   margin: 10px;
   border: 2px solid black;
   border-radius: 5px;
-  background-color: white;
+  color: white;
 }
 
 .player-card:hover {
@@ -85,7 +85,7 @@ code {
   margin-top: 50px;
   border: 2px solid black;
   border-radius: 5px;
-  background-color: white;
+  color: white;
   width: 950px;
   display: grid;
   grid-template-columns: auto auto;
