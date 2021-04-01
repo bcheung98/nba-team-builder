@@ -12,7 +12,8 @@ class PlayersList extends React.Component {
       team: "all",
       position: "all",
       draft: "all",
-      college: "all"
+      college: "all",
+      country: "all"
     },
   };
 
@@ -78,14 +79,26 @@ class PlayersList extends React.Component {
     this.setState({ filters: { ...this.state.filters, college: e.target.value } });
   }
 
+  setCountryFilters = (e) => {
+    this.setState({ filters: { ...this.state.filters, country: e.target.value } });
+  }
+
   getColleges = () => {
-    let players = [...this.props.players];
     let colleges = []
-    for (let p of players) {
+    for (let p of this.props.players) {
       !colleges.includes(p.from) && colleges.push(p.from);
     }
     colleges.sort((a, b) => a.localeCompare(b));
     return colleges;
+  }
+
+  getCountries = () => {
+    let countries = []
+    for (let p of this.props.players) {
+      !countries.includes(p.country) && countries.push(p.country);
+    }
+    countries.sort((a, b) => a.localeCompare(b));
+    return countries;
   }
 
   filterPlayers = () => {
@@ -104,6 +117,9 @@ class PlayersList extends React.Component {
     }
     if (this.state.filters.college !== "all") {
       players = players.filter(p => this.state.filters.college === p.from);
+    }
+    if (this.state.filters.country !== "all") {
+      players = players.filter(p => this.state.filters.country === p.country);
     }
     return players;
   };
@@ -125,6 +141,8 @@ class PlayersList extends React.Component {
           setDraftYear={this.setDraftFilters}
           setCollege={this.setCollegeFilters}
           colleges={this.getColleges()}
+          setCountry={this.setCountryFilters}
+          countries={this.getCountries()}
         />
         <SortBar onChange={this.setSortSettings} />
         <div className="player-display">
