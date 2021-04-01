@@ -46,9 +46,7 @@ const MoreInfo = (props) => {
         />
         <div>
           <h1 className="player-name-info">{props.player.name}</h1>
-          <h2>
-            #{props.player.number} | {teamMap[props.player.team].name}
-          </h2>
+          {props.player.team !== "FA" ? <h2>#{props.player.number} | {teamMap[props.player.team].name}</h2> : <h2>{teamMap[props.player.team].name}</h2>}
           <h2>{formatPosition(props.player.position)}</h2>
         </div>
         <img

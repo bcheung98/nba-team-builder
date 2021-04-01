@@ -34,6 +34,7 @@ const TeamFilter = (props) => {
             <option value="POR">Trail Blazers</option>
             <option value="GSW">Warriors</option>
             <option value="WAS">Wizards</option>
+            <option value="FA">Free Agents</option>
         </select>
     )
 }
