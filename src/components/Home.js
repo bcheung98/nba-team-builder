@@ -5,7 +5,7 @@ const Home = () => {
     <div>
       <img
         className="App-logo"
-        src="https://basketballsocietyonline.com/wp-content/uploads/2015/03/nba-logo-vector-logo-650193733.jpg"
+        src="https://www.themycenaean.org/wp-content/uploads/2020/02/kobe.jpg"
         alt="nba"
       />
     </div>

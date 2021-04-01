@@ -46,11 +46,10 @@ class App extends React.Component {
   removePlayer = (p) => {
     fetch(`http://localhost:3000/team/${p.id}`, {
       method: "DELETE",
-    })
-    .then(()=> this.setState({team: [...this.state.team].filter(x=> x.id !== p.id)
-    }))
+    }).then(() =>
+      this.setState({ team: [...this.state.team].filter((x) => x.id !== p.id) })
+    );
   };
-  
 
   render() {
     return (
@@ -82,7 +81,6 @@ class App extends React.Component {
                   <PlayersList
                     players={this.state.players}
                     display={"players"}
-                    
                   />
                 );
               }}

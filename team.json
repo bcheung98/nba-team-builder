@@ -41,6 +41,20 @@
       "draft": "2011 R1 11",
       "country": "USA",
       "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/202691.png"
+    },
+    {
+      "id": 201142,
+      "name": "Kevin Durant",
+      "height": "6-10",
+      "weight": "240",
+      "position": "SF/PF",
+      "team": "BKN",
+      "number": "7",
+      "birthday": "1988-09-29",
+      "from": "Texas",
+      "draft": "2007 R1 2",
+      "country": "USA",
+      "img": "https://cdn.nba.com/headshots/nba/latest/1040x760/201142.png"
     }
   ]
 }

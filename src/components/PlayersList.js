@@ -5,7 +5,6 @@ import Player from "./Player";
 import DraftedPlayer from "./DraftedPlayer";
 
 class PlayersList extends React.Component {
-
   state = {
     sort: "name-AZ",
     filters: {
@@ -13,20 +12,20 @@ class PlayersList extends React.Component {
       team: "all",
       position: "all",
       draft: "all",
-    }
-  }
+    },
+  };
 
   heightToInches = (height) => {
     height = height.split("-");
-    return (parseInt(height[0]) * 12) + parseInt(height[1]);
-  }
+    return parseInt(height[0]) * 12 + parseInt(height[1]);
+  };
 
   setSortSettings = (e) => {
     this.setState({ sort: e.target.value }, () => this.sortPlayers());
-  }
+  };
 
   sortPlayers = () => {
-    let players = [...this.props.players]
+    let players = [...this.props.players];
     switch (this.state.sort) {
       case "name-AZ":
         players.sort((a, b) => a.name.localeCompare(b.name));
@@ -35,10 +34,16 @@ class PlayersList extends React.Component {
         players.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case "height-asc":
-        players.sort((a, b) => this.heightToInches(a.height) - this.heightToInches(b.height));
+        players.sort(
+          (a, b) =>
+            this.heightToInches(a.height) - this.heightToInches(b.height)
+        );
         break;
       case "height-desc":
-        players.sort((a, b) => this.heightToInches(a.height) - this.heightToInches(b.height));
+        players.sort(
+          (a, b) =>
+            this.heightToInches(a.height) - this.heightToInches(b.height)
+        );
         break;
       case "weight-asc":
         players.sort((a, b) => a.weight - b.weight);
@@ -49,76 +54,98 @@ class PlayersList extends React.Component {
       default:
         break;
     }
-    return players
-  }
+    return players;
+  };
 
   searchPlayer = (e) => {
     this.setState({
       filters: {
         ...this.state.filters,
-        players: e.target.value
-      }
+        players: e.target.value,
+      },
     });
-  }
+  };
 
   setTeamFilters = (e) => {
     this.setState({
       filters: {
         ...this.state.filters,
-        team: e.target.value
-      }
+        team: e.target.value,
+      },
     });
-  }
+  };
 
   setPositionFilters = (e) => {
     this.setState({
       filters: {
         ...this.state.filters,
-        position: e.target.value
-      }
+        position: e.target.value,
+      },
     });
-  }
+  };
 
   setDraftFilters = (e) => {
     this.setState({
       filters: {
         ...this.state.filters,
-        draft: e.target.value
-      }
+        draft: e.target.value,
+      },
     });
-  }
+  };
 
   filterPlayers = () => {
     let players = this.sortPlayers();
     if (this.state.filters.players !== "") {
-      players = players.filter(p => p.name.toLowerCase().includes(this.state.filters.players.toLowerCase()));
+      players = players.filter((p) =>
+        p.name.toLowerCase().includes(this.state.filters.players.toLowerCase())
+      );
     }
     if (this.state.filters.team !== "all") {
-      players = players.filter(p => this.state.filters.team === p.team);
+      players = players.filter((p) => this.state.filters.team === p.team);
     }
     if (this.state.filters.position !== "all") {
-      players = players.filter(p => p.position.split("/").includes(this.state.filters.position));
+      players = players.filter((p) =>
+        p.position.split("/").includes(this.state.filters.position)
+      );
     }
     if (this.state.filters.draft !== "all") {
-      players = players.filter(p => this.state.filters.draft === p.draft.split(" ")[0]);
+      players = players.filter(
+        (p) => this.state.filters.draft === p.draft.split(" ")[0]
+      );
     }
     return players;
-  }
+  };
 
   render() {
     return (
       <div>
         {this.props.display === "players" ? <h1>Players</h1> : <h1>My Team</h1>}
         <div>
-          <input onChange={this.searchPlayer} type="text" placeholder="Search for a player" />
+          <input
+            onChange={this.searchPlayer}
+            type="text"
+            placeholder="Search for a player"
+          />
         </div>
-        <Filters setTeam={this.setTeamFilters} setPosition={this.setPositionFilters} setDraftYear={this.setDraftFilters} />
+        <Filters
+          setTeam={this.setTeamFilters}
+          setPosition={this.setPositionFilters}
+          setDraftYear={this.setDraftFilters}
+        />
         <SortBar onChange={this.setSortSettings} />
         <div className="player-display">
           <div className="player-container">
-            {this.props.display === "players" ?
-              this.filterPlayers().map(player => <Player key={player.id} player={player} />) :
-              this.filterPlayers().map(player => <DraftedPlayer key={player.id} player={player} removePlayer={this.props.removePlayer} />)}
+            {this.props.display === "players"
+              ? this.filterPlayers().map((player) => (
+                  <Player key={player.id} player={player} />
+                ))
+              : this.filterPlayers().map((player) => (
+                  <DraftedPlayer
+                    key={player.id}
+                    player={player}
+                    removePlayer={this.props.removePlayer}
+                  />
+                ))}
           </div>
         </div>
       </div>
