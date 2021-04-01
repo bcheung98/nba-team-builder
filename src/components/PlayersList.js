@@ -40,16 +40,10 @@ class PlayersList extends React.Component {
         players.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case "height-asc":
-        players.sort(
-          (a, b) =>
-            this.heightToInches(a.height) - this.heightToInches(b.height)
-        );
+        players.sort((a, b) => this.heightToInches(a.height) - this.heightToInches(b.height));
         break;
       case "height-desc":
-        players.sort(
-          (a, b) =>
-            this.heightToInches(b.height) - this.heightToInches(a.height)
-        );
+        players.sort((a, b) => this.heightToInches(b.height) - this.heightToInches(a.height));
         break;
       case "weight-asc":
         players.sort((a, b) => a.weight - b.weight);
@@ -64,60 +58,34 @@ class PlayersList extends React.Component {
   };
 
   searchPlayer = (e) => {
-    this.setState({
-      filters: {
-        ...this.state.filters,
-        players: e.target.value,
-      },
-    });
-  };
+    this.setState({ filters: { ...this.state.filters, players: e.target.value } });
+  }
 
   setTeamFilters = (e) => {
-    this.setState({
-      filters: {
-        ...this.state.filters,
-        team: e.target.value,
-      },
-    });
-  };
+    this.setState({ filters: { ...this.state.filters, team: e.target.value } });
+  }
 
   setPositionFilters = (e) => {
-    this.setState({
-      filters: {
-        ...this.state.filters,
-        position: e.target.value,
-      },
-    });
-  };
+    this.setState({ filters: { ...this.state.filters, position: e.target.value } });
+  }
 
   setDraftFilters = (e) => {
-    this.setState({
-      filters: {
-        ...this.state.filters,
-        draft: e.target.value,
-      },
-    });
-  };
+    this.setState({ filters: { ...this.state.filters, draft: e.target.value } });
+  }
 
   filterPlayers = () => {
     let players = this.sortPlayers();
     if (this.state.filters.players !== "") {
-      players = players.filter((p) =>
-        p.name.toLowerCase().includes(this.state.filters.players.toLowerCase())
-      );
+      players = players.filter(p => p.name.toLowerCase().includes(this.state.filters.players.toLowerCase()));
     }
     if (this.state.filters.team !== "all") {
-      players = players.filter((p) => this.state.filters.team === p.team);
+      players = players.filter(p => this.state.filters.team === p.team);
     }
     if (this.state.filters.position !== "all") {
-      players = players.filter((p) =>
-        p.position.split("/").includes(this.state.filters.position)
-      );
+      players = players.filter(p => p.position.split("/").includes(this.state.filters.position));
     }
     if (this.state.filters.draft !== "all") {
-      players = players.filter(
-        (p) => this.state.filters.draft === p.draft.split(" ")[0]
-      );
+      players = players.filter(p => this.state.filters.draft === p.draft.split(" ")[0]);
     }
     return players;
   };
@@ -143,15 +111,15 @@ class PlayersList extends React.Component {
           <div className="player-container">
             {this.props.display === "players"
               ? this.filterPlayers().map((player) => (
-                  <Player key={player.id} player={player} />
-                ))
+                <Player key={player.id} player={player} />
+              ))
               : this.filterPlayers().map((player) => (
-                  <DraftedPlayer
-                    key={player.id}
-                    player={player}
-                    removePlayer={this.props.removePlayer}
-                  />
-                ))}
+                <DraftedPlayer
+                  key={player.id}
+                  player={player}
+                  removePlayer={this.props.removePlayer}
+                />
+              ))}
           </div>
         </div>
       </div>

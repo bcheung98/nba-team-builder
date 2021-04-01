@@ -23,6 +23,7 @@ const DraftFilter = (props) => {
             <option value="2004">2004</option>
             <option value="2003">2003</option>
             <option value="2002">2002</option>
+            <option value="2001">2001</option>
         </select>
     )
 }
