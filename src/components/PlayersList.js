@@ -6,7 +6,7 @@ import DraftedPlayer from "./DraftedPlayer";
 
 class PlayersList extends React.Component {
   state = {
-    sort: "name-AZ",
+    sort: "last-name-AZ",
     filters: {
       players: "",
       team: "all",
@@ -27,10 +27,16 @@ class PlayersList extends React.Component {
   sortPlayers = () => {
     let players = [...this.props.players];
     switch (this.state.sort) {
-      case "name-AZ":
+      case "last-name-AZ":
+        players.sort((a, b) => a.name.split(" ").slice(0, 2).reverse().join(" ") < b.name.split(" ").slice(0, 2).reverse().join(" ") ? -1 : 1);
+        break;
+      case "last-name-ZA":
+        players.sort((a, b) => a.name.split(" ").slice(0, 2).reverse().join(" ") < b.name.split(" ").slice(0, 2).reverse().join(" ") ? 1 : -1);
+        break;
+      case "first-name-AZ":
         players.sort((a, b) => a.name.localeCompare(b.name));
         break;
-      case "name-ZA":
+      case "first-name-ZA":
         players.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case "height-asc":
@@ -42,7 +48,7 @@ class PlayersList extends React.Component {
       case "height-desc":
         players.sort(
           (a, b) =>
-            this.heightToInches(a.height) - this.heightToInches(b.height)
+            this.heightToInches(b.height) - this.heightToInches(a.height)
         );
         break;
       case "weight-asc":
