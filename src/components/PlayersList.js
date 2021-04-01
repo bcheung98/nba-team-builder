@@ -29,10 +29,10 @@ class PlayersList extends React.Component {
     let players = [...this.props.players]
     switch (this.state.sort) {
       case "name-AZ":
-        players.sort((a, b) => a.name.split(" ").slice(0, 2).reverse().join(" ") < b.name.split(" ").reverse().join(" ") ? -1 : 1);
+        players.sort((a, b) => a.name.split(" ").slice(0, 2).reverse().join(" ") < b.name.split(" ").slice(0, 2).reverse().join(" ") ? -1 : 1);
         break;
       case "name-ZA":
-        players.sort((a, b) => a.name.split(" ").slice(0, 2).reverse().join(" ") < b.name.split(" ").reverse().join(" ") ? 1 : -1);
+        players.sort((a, b) => a.name.split(" ").slice(0, 2).reverse().join(" ") < b.name.split(" ").slice(0, 2).reverse().join(" ") ? 1 : -1);
         break;
       case "height-asc":
         players.sort((a, b) => this.heightToInches(a.height) < this.heightToInches(b.height) ? -1 : 1);
