@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import PlayersList from "./components/PlayersList";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
@@ -61,8 +61,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route
-              exact
-              path="/team"
+              exact path="/team"
               render={() => {
                 return (
                   <PlayersList
@@ -74,8 +73,7 @@ class App extends React.Component {
               }}
             />
             <Route
-              exact
-              path="/players"
+              exact path="/players"
               render={() => {
                 return (
                   <PlayersList
@@ -86,15 +84,19 @@ class App extends React.Component {
               }}
             />
             <Route
-              exact
-              path="/players/:id"
+              exact path="/players/:id"
               render={(routerProps) => {
-                let player = this.state.players.find(
-                  (player) => Number(routerProps.match.params.id) === player.id
-                );
-                return <MoreInfo player={player} addPlayer={this.addPlayer} />;
+                if (this.state.players.length !== 0) {
+                  let player = this.state.players.find(
+                    (player) => Number(routerProps.match.params.id) === player.id
+                  );
+                  return <MoreInfo player={player} addPlayer={this.addPlayer} />;
+                }
+                else {
+                  return <Redirect to="/players" />
+                }
               }}
-            />
+            ></Route>
             <Route component={NotFound} />
           </Switch>
         </main>
