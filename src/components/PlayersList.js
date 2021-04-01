@@ -124,7 +124,7 @@ class PlayersList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main-page">
         {this.props.display === "players" ? <h1>Players</h1> : <h1>My Team</h1>}
         <div>
           <input
