@@ -2,11 +2,11 @@ import React from "react";
 import teamMap from "./TeamMap";
 
 const positionMap = {
-  "PG": "Point Guard",
-  "SG": "Shooting Guard",
-  "SF": "Small Forward",
-  "PF": "Power Forward",
-  "C": "Center"
+  PG: "Point Guard",
+  SG: "Shooting Guard",
+  SF: "Small Forward",
+  PF: "Power Forward",
+  C: "Center",
 };
 
 const formatHeight = (height) => {
@@ -18,26 +18,27 @@ const formatPosition = (position) => {
   position = position.split("/");
   if (position.length === 1) {
     return `${positionMap[position[0]]}`;
-  }
-  else {
+  } else {
     return `${positionMap[position[0]]} / ${positionMap[position[1]]}`;
   }
-}
+};
 
 const formatDraft = (draft) => {
   draft = draft.split(" ");
   if (draft.length === 3) {
     return `${draft[0]} / Round: ${draft[1][1]} / Pick: ${draft[2]}`;
-  }
-  else {
+  } else {
     return `${draft[0]} / ${draft[1]}`;
   }
-}
+};
 
 const MoreInfo = (props) => {
   return (
     <React.Fragment>
-      <div className="player-more-info" style={{backgroundColor: teamMap[props.player.team].color}}>
+      <div
+        className="player-more-info"
+        style={{ backgroundColor: teamMap[props.player.team].color }}
+      >
         <img
           className="player-team-img-info"
           src={teamMap[props.player.team].logo}
@@ -45,7 +46,9 @@ const MoreInfo = (props) => {
         />
         <div>
           <h1 className="player-name-info">{props.player.name}</h1>
-          <h2>#{props.player.number} | {teamMap[props.player.team].name}</h2>
+          <h2>
+            #{props.player.number} | {teamMap[props.player.team].name}
+          </h2>
           <h2>{formatPosition(props.player.position)}</h2>
         </div>
         <img
@@ -80,7 +83,9 @@ const MoreInfo = (props) => {
           </div>
         </div>
       </div>
-      <button className="button" onClick={() => props.addPlayer(props.player)}>Add to Team</button>
+      <button className="button" onClick={() => props.addPlayer(props.player)}>
+        Add to Team
+      </button>
     </React.Fragment>
   );
 };
