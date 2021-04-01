@@ -15,6 +15,12 @@ code {
     monospace;
 }
 
+.home-page {
+  background-image: url("https://images6.alphacoders.com/323/thumb-1920-323997.jpg");
+  background-size: cover;
+  background-color: #aaa;
+}
+
 .nav-bar {
   margin: auto;
   display: flex;
