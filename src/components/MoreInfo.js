@@ -34,7 +34,7 @@ const formatDraft = (draft) => {
 
 const MoreInfo = (props) => {
   return (
-    <React.Fragment>
+    <div className="main-page">
       <div
         className="player-more-info"
         style={{ backgroundColor: teamMap[props.player.team].color }}
@@ -86,7 +86,7 @@ const MoreInfo = (props) => {
       <button className="button" onClick={() => props.addPlayer(props.player)}>
         Add to Team
       </button>
-    </React.Fragment>
+    </div>
   );
 };
 

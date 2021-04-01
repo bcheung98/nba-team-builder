@@ -19,6 +19,11 @@ code {
   background-image: url("https://images6.alphacoders.com/323/thumb-1920-323997.jpg");
   background-size: cover;
   background-color: #aaa;
+  height: 1000px;
+}
+
+.main-page {
+  margin-bottom: 100px;
 }
 
 .nav-bar {
