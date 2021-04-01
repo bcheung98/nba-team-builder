@@ -149,6 +149,11 @@ const teamMap = {
         logo: "https://cdn.nba.com/logos/nba/1610612764/primary/D/logo.svg",
         color: "rgb(0, 34, 74)"
     },
+    FA: {
+        name: "Free Agent",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/BLANK_ICON.png",
+        color: "rgb(127, 127, 127)"
+    }
 };
 
 export default teamMap;
