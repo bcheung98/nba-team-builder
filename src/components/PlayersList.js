@@ -13,7 +13,8 @@ class PlayersList extends React.Component {
       position: "all",
       draft: "all",
       college: "all",
-      country: "all"
+      country: "all",
+      showFA: false
     },
   };
 
@@ -83,6 +84,10 @@ class PlayersList extends React.Component {
     this.setState({ filters: { ...this.state.filters, country: e.target.value } });
   }
 
+  showFA = () => {
+    this.setState({ filters: { ...this.state.filters, showFA: !this.state.filters.showFA } });
+  }
+
   getColleges = () => {
     let colleges = []
     for (let p of this.props.players) {
@@ -121,6 +126,9 @@ class PlayersList extends React.Component {
     if (this.state.filters.country !== "all") {
       players = players.filter(p => this.state.filters.country === p.country);
     }
+    if (!this.state.filters.showFA) {
+      players = players.filter(p => p.team !== "FA")
+    }
     return players;
   };
 
@@ -144,6 +152,7 @@ class PlayersList extends React.Component {
           setCountry={this.setCountryFilters}
           countries={this.getCountries()}
         />
+        <input onChange={this.showFA} type="checkbox" /><b>Show Free Agents</b>
         <SortBar onChange={this.setSortSettings} />
         <div className="player-display">
           <div className="player-container">
