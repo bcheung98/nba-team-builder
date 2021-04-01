@@ -12,6 +12,7 @@ class PlayersList extends React.Component {
       team: "all",
       position: "all",
       draft: "all",
+      college: "all"
     },
   };
 
@@ -73,6 +74,20 @@ class PlayersList extends React.Component {
     this.setState({ filters: { ...this.state.filters, draft: e.target.value } });
   }
 
+  setCollegeFilters = (e) => {
+    this.setState({ filters: { ...this.state.filters, college: e.target.value } });
+  }
+
+  getColleges = () => {
+    let players = [...this.props.players];
+    let colleges = []
+    for (let p of players) {
+      !colleges.includes(p.from) && colleges.push(p.from);
+    }
+    colleges.sort((a, b) => a.localeCompare(b));
+    return colleges;
+  }
+
   filterPlayers = () => {
     let players = this.sortPlayers();
     if (this.state.filters.players !== "") {
@@ -86,6 +101,9 @@ class PlayersList extends React.Component {
     }
     if (this.state.filters.draft !== "all") {
       players = players.filter(p => this.state.filters.draft === p.draft.split(" ")[0]);
+    }
+    if (this.state.filters.college !== "all") {
+      players = players.filter(p => this.state.filters.college === p.from);
     }
     return players;
   };
@@ -105,6 +123,8 @@ class PlayersList extends React.Component {
           setTeam={this.setTeamFilters}
           setPosition={this.setPositionFilters}
           setDraftYear={this.setDraftFilters}
+          setCollege={this.setCollegeFilters}
+          colleges={this.getColleges()}
         />
         <SortBar onChange={this.setSortSettings} />
         <div className="player-display">

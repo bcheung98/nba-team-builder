@@ -72,7 +72,7 @@ const MoreInfo = (props) => {
             <p>{props.player.birthday}</p>
           </div>
           <div>
-            <b>Last Attended</b>
+            <b>From</b>
             <p>{props.player.from}</p>
           </div>
           <div>
