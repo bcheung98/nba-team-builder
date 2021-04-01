@@ -1,12 +1,15 @@
-import React from 'react'
+import React from "react";
 
+const Home = () => {
+  return (
+    <div>
+      <img
+        className="App-logo"
+        src="https://basketballsocietyonline.com/wp-content/uploads/2015/03/nba-logo-vector-logo-650193733.jpg"
+        alt="nba"
+      />
+    </div>
+  );
+};
 
-const NotFound = () => {
-    return (
-        <div>
-            <h1 className='App-logo'>NBA DRAFT 2021</h1>
-        </div>
-    )
-}
-
-export default NotFound;
+export default Home;
