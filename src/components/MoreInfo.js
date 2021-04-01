@@ -9,6 +9,21 @@ const positionMap = {
   C: "Center",
 };
 
+const monthMap = {
+  "1": "January",
+  "2": "February",
+  "3": "March",
+  "4": "April",
+  "5": "May",
+  "6": "June",
+  "7": "July",
+  "8": "August",
+  "9": "September",
+  "10": "October",
+  "11": "November",
+  "12": "December"
+}
+
 const formatHeight = (height) => {
   height = height.split("-");
   return `${height[0]} ft ${height[1]} in`;
@@ -31,6 +46,11 @@ const formatDraft = (draft) => {
     return `${draft[0]} / ${draft[1]}`;
   }
 };
+
+const formatBday = (bday) => {
+  bday = bday.split("-");
+  return `${monthMap[bday[1]]} ${bday[2]}, ${bday[0]}`;
+}
 
 const MoreInfo = (props) => {
   return (
@@ -69,7 +89,7 @@ const MoreInfo = (props) => {
           </div>
           <div>
             <b>Birthday</b>
-            <p>{props.player.birthday}</p>
+            <p>{formatBday(props.player.birthday)}</p>
           </div>
           <div>
             <b>From</b>
