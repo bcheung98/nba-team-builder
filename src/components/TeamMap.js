@@ -52,7 +52,7 @@ const teamMap = {
     HOU: {
         name: "Houston Rockets",
         logo: "https://cdn.nba.com/logos/nba/1610612745/alt/logo.svg",
-        color: "rgb(165, 14, 52)"
+        color: "rgb(134, 14, 52)"
     },
     IND: {
         name: "Indiana Pacers",
@@ -122,7 +122,7 @@ const teamMap = {
     POR: {
         name: "Portland Trail Blazers",
         logo: "https://cdn.nba.com/logos/nba/1610612757/primary/L/logo.svg",
-        color: "rgb(162, 26, 29)"
+        color: "rgb(128, 26, 29)"
     },
     SAC: {
         name: "Sacramento Kings",
@@ -132,17 +132,17 @@ const teamMap = {
     SAS: {
         name: "San Antonio Spurs",
         logo: "https://cdn.nba.com/logos/nba/1610612759/primary/D/logo.svg",
-        color: "rgb(0, 0, 0)"
+        color: "rgb(32, 32, 32)"
     },
     TOR: {
         name: "Toronto Raptors",
         logo: "https://cdn.nba.com/logos/nba/1610612761/primary/D/logo.svg",
-        color: "rgb(0, 0, 0)"
+        color: "rgb(48, 0, 0)"
     },
     UTA: {
         name: "Utah Jazz",
         logo: "https://cdn.nba.com/logos/nba/1610612762/primary/D/logo.svg",
-        color: "rgb(0, 34, 74)"
+        color: "rgb(0, 34, 64)"
     },
     WAS: {
         name: "Washington Wizards",
