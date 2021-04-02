@@ -9,7 +9,7 @@ const formatHeight = (height) => {
 
 const DraftedPlayer = (props) => {
   return (
-    <div className="player-card" style={{backgroundColor: teamMap[props.player.team].color}}>
+    <div className="player-card" style={{backgroundColor: teamMap[props.player.team].color, border: `5px solid ${teamMap[props.player.team].color2}`}}>
       <div className="player-info">
         <img
           className="player-team-img-card"

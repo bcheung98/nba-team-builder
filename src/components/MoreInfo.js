@@ -57,7 +57,7 @@ const MoreInfo = (props) => {
     <div className="main-page">
       <div
         className="player-more-info"
-        style={{ backgroundColor: teamMap[props.player.team].color }}
+        style={{ backgroundColor: teamMap[props.player.team].color, border: `5px solid ${teamMap[props.player.team].color2}`}}
       >
         <img
           className="player-team-img-info"
